@@ -14,7 +14,6 @@
   "entrypoints": {
     "main": [
       {
-        "adapter": "kotlin",
         "value": "me.ders.darknessutils.DarknessUtils"
       }
     ]
@@ -25,7 +24,6 @@
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
-    "minecraft": "${minecraft_version}",
-    "fabric-language-kotlin": ">=1.10.14+kotlin.1.9.20"
+    "minecraft": "${minecraft_version}"
   }
 }

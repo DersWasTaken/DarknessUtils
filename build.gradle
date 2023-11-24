@@ -1,7 +1,6 @@
 plugins {
     id 'fabric-loom' version '1.2-SNAPSHOT'
     id 'maven-publish'
-    id 'org.jetbrains.kotlin.jvm' version '1.9.20'
 }
 
 version = project.mod_version
@@ -26,10 +25,7 @@ dependencies {
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    modImplementation "maven.modrinth:coloredglowlib:2.2.3+fabric_1.20.1"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-
-    modImplementation("net.fabricmc:fabric-language-kotlin:1.10.14+kotlin.1.9.20")
+    modImplementation include("maven.modrinth:coloredglowlib:2.2.3+fabric_1.20.1")
 }
 
 processResources {
@@ -90,7 +86,4 @@ publishing {
         // The repositories here will be used for publishing your artifact, not for
         // retrieving dependencies.
     }
-}
-kotlin {
-    jvmToolchain(17)
 }
