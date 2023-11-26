@@ -25,7 +25,6 @@ dependencies {
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    modImplementation include("maven.modrinth:coloredglowlib:2.2.3+fabric_1.20.1")
 }
 
 processResources {
