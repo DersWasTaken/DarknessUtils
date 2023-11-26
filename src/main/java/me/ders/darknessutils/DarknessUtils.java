@@ -9,7 +9,7 @@ import net.minecraft.util.Formatting;
 
 public class DarknessUtils implements ModInitializer {
 
-    public static boolean GlowEnabled = false;
+    public static boolean GlowEnabled = true;
 
     @Override
     public void onInitialize() {
