@@ -1,6 +1,7 @@
 package me.ders.darknessutils.mixin;
 
 
+import me.ders.darknessutils.DarknessUtils;
 import me.emafire003.dev.coloredglowlib.ColoredGlowLib;
 import me.emafire003.dev.coloredglowlib.ColoredGlowLibMod;
 import me.emafire003.dev.coloredglowlib.util.Color;
@@ -16,6 +17,7 @@ import org.spongepowered.asm.mixin.Shadow;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Environment(EnvType.CLIENT)
 @Mixin(Entity.class)
@@ -51,7 +53,6 @@ public abstract class GlowingMixin {
         put("Cursed Solphire", new Color(0xAA26FF));
     }};
     //TODO: REMOVE GLOW-LIB AND IMPLEMENT CUSTOM LOGIC
-
     ColoredGlowLib lib = ColoredGlowLibMod.getLib();
 
     /**
@@ -60,10 +61,20 @@ public abstract class GlowingMixin {
      */
     @Overwrite
     public boolean isGlowing() {
-        if(hasCustomName()) {
-            Color mobColor = mobColors.get(getCustomName().getString());
-            if(mobColor != null) {
-                lib.setColorToEntity((Entity) (Object) this, mobColor);
+        if(hasCustomName() && DarknessUtils.GlowEnabled) {
+            //TODO: SUPER SLOW AND UGLY, FIX LATER
+            Optional<Map.Entry<String, Color>> mobColor = mobColors
+                    .entrySet()
+                    .stream()
+                    .filter(it ->
+                            getCustomName()
+                            .toString()
+                            .toLowerCase()
+                            .contains(it.getKey().toLowerCase())
+                    ).findFirst();
+
+            if(mobColor.isPresent()) {
+                lib.setColorToEntity((Entity) (Object) this, mobColor.get().getValue());
                 return true;
             }
         }
