@@ -13,5 +13,4 @@ Currently the only feature is highlighting boss mobs during darkness fights, but
     - Boss Highlights
       - Command: /glow (toggle)
       - Description: Highlights bosses in the darkness fight with a glow color!
-      - Note: Boss Highlights are disabled by default, enable with /glow before use!
 </p>
