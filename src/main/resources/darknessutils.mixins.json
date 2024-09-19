@@ -4,7 +4,8 @@
   "package": "me.ders.darknessutils.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "GlowingMixin"
+    "GlowingMixin",
+    "TranslatableTextContentMixin"
   ],
   "client": [
   ],

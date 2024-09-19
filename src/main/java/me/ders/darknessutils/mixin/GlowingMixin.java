@@ -18,6 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Supplier;
 
 @Environment(EnvType.CLIENT)
 @Mixin(Entity.class)
@@ -35,22 +36,21 @@ public abstract class GlowingMixin  {
 
     @Shadow public abstract boolean hasCustomName();
 
-    //TODO: MOVE TO CONFIGURATION FILE/POLL API FOR NAMES
-    Map<String, Integer> mobColors = new HashMap<>() {{
-        put("Skeleton King", 0xCCCCCC);
-        put("Zombie King", 0x38761D);
-        put("Nether King", 0xB45F06);
-        put("Dragon Slayer", 0xE95BFF);
-        put("Panda King", 0x6AA84F);
-        put("Pumpkin King",0xB44409);
-        put("Ocean Prince", 0x3D85C6);
-        put("Witch Queen", 0x674EA7);
-        put("Dragon King", 0x1B0F29);
-        put("Super Warden", 0x0B5394);
-        put("Cursed AutismFather", 0xFF0014);
-        put("Cursed ZEDDY1977", 0xFF4F0B);
-        put("Cursed Crankles_", 0xFF059F);
-        put("Cursed Solphire", 0xAA26FF);
+    Map<String, Supplier<Integer>> mobColors = new HashMap<>() {{
+        put("Skeleton King",        () -> DarknessUtils.CONFIG.bossHighlights.bossColors.skeletonKingColor().rgb());
+        put("Zombie King",          () -> DarknessUtils.CONFIG.bossHighlights.bossColors.zombieKingColor().rgb());
+        put("Nether King",          () -> DarknessUtils.CONFIG.bossHighlights.bossColors.netherKingColor().rgb());
+        put("Dragon Slayer",        () -> DarknessUtils.CONFIG.bossHighlights.bossColors.dragonSlayerColor().rgb());
+        put("Panda King",           () -> DarknessUtils.CONFIG.bossHighlights.bossColors.pandaKingColor().rgb());
+        put("Pumpkin King",         () -> DarknessUtils.CONFIG.bossHighlights.bossColors.pumpkinKingColor().rgb());
+        put("Ocean Prince",         () -> DarknessUtils.CONFIG.bossHighlights.bossColors.oceanPrinceColor().rgb());
+        put("Witch Queen",          () -> DarknessUtils.CONFIG.bossHighlights.bossColors.witchQueenColor().rgb());
+        put("Dragon King",          () -> DarknessUtils.CONFIG.bossHighlights.bossColors.dragonKingColor().rgb());
+        put("Super Warden",         () -> DarknessUtils.CONFIG.bossHighlights.bossColors.superWardenColor().rgb());
+        put("Cursed AutismFather",  () -> DarknessUtils.CONFIG.bossHighlights.bossColors.cursedAFColor().rgb());
+        put("Cursed ZEDDY1977",     () -> DarknessUtils.CONFIG.bossHighlights.bossColors.cursedZEDDY1977Color().rgb());
+        put("Cursed Crankles_",     () -> DarknessUtils.CONFIG.bossHighlights.bossColors.cursedCrankles_Color().rgb());
+        put("Cursed Solphire",      () -> DarknessUtils.CONFIG.bossHighlights.bossColors.cursedSolphireColor().rgb());
     }};
 
     /**
@@ -61,7 +61,7 @@ public abstract class GlowingMixin  {
     public boolean isGlowing() {
         if(hasCustomName()) {
             if(getMobColor().isPresent()) {
-                return DarknessUtils.GlowEnabled;
+                return DarknessUtils.CONFIG.bossHighlights.showBossHighlights();
             }
         }
 
@@ -70,12 +70,12 @@ public abstract class GlowingMixin  {
 
     @Inject(method = "getTeamColorValue", at = @At("HEAD"), cancellable = true)
     public void injectGetTeamColorValue(CallbackInfoReturnable<Integer> ci) {
-        if(hasCustomName() && DarknessUtils.GlowEnabled) {
-            getMobColor().ifPresent(stringColorEntry -> ci.setReturnValue(stringColorEntry.getValue()));
+        if(hasCustomName() && DarknessUtils.CONFIG.bossHighlights.showBossHighlights()) {
+            getMobColor().ifPresent(stringColorEntry -> ci.setReturnValue(stringColorEntry.getValue().get()));
         }
     }
 
-    public Optional<Map.Entry<String, Integer>> getMobColor() {
+    public Optional<Map.Entry<String, Supplier<Integer>>> getMobColor() {
         return mobColors
                 .entrySet()
                 .stream()

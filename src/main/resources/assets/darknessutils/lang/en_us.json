@@ -1,0 +1,153 @@
+{
+  "text.config.darkness-settings.title": [
+    {
+      "text": "<primary>Darkness Settings",
+      "color": "#A594F9",
+      "bold": true
+    }
+  ],
+  "text.config.darkness-settings.section.bossSettings": [
+    {
+      "text": "<secondary>Boss Settings",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.category.bossHighlights": [
+    {
+      "text": "<tertiary>Boss Highlights",
+      "color": "#E5D9F2"
+    }
+  ],
+  "text.config.darkness-settings.option.bossHighlights.showBossHighlights": [
+    {
+      "text": "<quaternary>Show Boss Highlights",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.category.bossHighlights.bossColors": [
+    {
+      "text": "<tertiary>Boss Colors",
+      "color": "#E5D9F2"
+    }
+  ],
+  "text.config.darkness-settings.option.bossHighlights.bossColors.skeletonKingColor": [
+    {
+      "text": "<quaternary>Skeleton King Color",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.option.bossHighlights.bossColors.zombieKingColor": [
+    {
+      "text": "<quaternary>Zombie King Color",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.option.bossHighlights.bossColors.netherKingColor": [
+    {
+      "text": "<quaternary>Nether King Color",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.option.bossHighlights.bossColors.dragonSlayerColor": [
+    {
+      "text": "<quaternary>Dragon Slayer Color",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.option.bossHighlights.bossColors.pandaKingColor": [
+    {
+      "text": "<quaternary>Panda King Color",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.option.bossHighlights.bossColors.pumpkinKingColor": [
+    {
+      "text": "<quaternary>Pumpkin King Color",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.option.bossHighlights.bossColors.oceanPrinceColor": [
+    {
+      "text": "<quaternary>Ocean Prince Color",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.option.bossHighlights.bossColors.witchQueenColor": [
+    {
+      "text": "<quaternary>Witch Queen Color",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.option.bossHighlights.bossColors.dragonKingColor": [
+    {
+      "text": "<quaternary>Dragon King Color",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.option.bossHighlights.bossColors.superWardenColor": [
+    {
+      "text": "<quaternary>Super Warden Color",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.option.bossHighlights.bossColors.cursedAFColor": [
+    {
+      "text": "<quaternary>Cursed AustismFather Color",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.option.bossHighlights.bossColors.cursedZEDDY1977Color": [
+    {
+      "text": "<quaternary>Cursed ZEDDY1977 Color",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.option.bossHighlights.bossColors.cursedCrankles_Color": [
+    {
+      "text": "<quaternary>Cursed Crankles_ Color",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.option.bossHighlights.bossColors.cursedSolphireColor": [
+    {
+      "text": "<quaternary>Cursed Solphire Color",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.section.modSettings": [
+    {
+      "text": "<secondary>Mod Settings",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.category.modColors": [
+    {
+      "text": "<tertiary>Mod Colors",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.option.modColors.primary": [
+    {
+      "text": "<quaternary>Primary Color",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.option.modColors.secondary": [
+    {
+      "text": "<quaternary>Secondary Color",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.option.modColors.tertiary": [
+    {
+      "text": "<quaternary>Tertiary Color",
+      "color": "#F5EFFF"
+    }
+  ],
+  "text.config.darkness-settings.option.modColors.quaternary": [
+    {
+      "text": "<quaternary>Quaternary Color",
+      "color": "#F5EFFF"
+    }
+  ]
+}

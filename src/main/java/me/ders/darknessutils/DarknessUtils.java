@@ -1,35 +1,33 @@
 package me.ders.darknessutils;
 
+import io.wispforest.owo.config.ui.ConfigScreenProviders;
+import me.ders.darknessutils.config.DarknessModSettings;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
-import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
-import net.minecraft.text.MutableText;
+import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
+import net.fabricmc.loader.api.LanguageAdapter;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.text.Style;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
+import net.minecraft.text.TextColor;
+import net.minecraft.util.Language;
+import org.incendo.cloud.Command;
+import org.incendo.cloud.execution.ExecutionCoordinator;
+import org.incendo.cloud.fabric.FabricClientCommandManager;
 
 public class DarknessUtils implements ModInitializer {
 
-    public static boolean GlowEnabled = true;
+    public static final DarknessModSettings CONFIG = DarknessModSettings.createAndLoad();
 
     @Override
     public void onInitialize() {
-        //TODO: COMMAND API AND TEXT API (MINI-MESSAGE?)
-        ClientCommandRegistrationCallback
-            .EVENT
-            .register((dispatcher, registryAccess) -> dispatcher.register(ClientCommandManager.literal("glow")
-                .executes(context -> {
-                    GlowEnabled = !GlowEnabled;
+        final FabricClientCommandManager<FabricClientCommandSource> commandManager =
+                FabricClientCommandManager.createNative(ExecutionCoordinator.simpleCoordinator());
 
-                    MutableText glowValue = GlowEnabled ?
-                        Text.literal("[ENABLED]").formatted(Formatting.DARK_GREEN, Formatting.BOLD) :
-                        Text.literal("[DISABLED]").formatted(Formatting.DARK_RED, Formatting.BOLD);
+        final Command.Builder<FabricClientCommandSource> base = commandManager.commandBuilder("darkness");
 
-                    glowValue.append(Text.literal(" - ").formatted(Formatting.DARK_GRAY));
-                    glowValue.append(Text.literal("Boss Highlights").formatted(Formatting.GRAY));
-
-                    context.getSource().sendFeedback(glowValue);
-                    return 1;
-                })
-        ));
+        commandManager.command(base.literal("config")
+                .handler(ctx -> {
+                    MinecraftClient.getInstance().send(() -> MinecraftClient.getInstance().setScreen(ConfigScreenProviders.get("darknessutils").apply(null)));
+                }));
     }
 }
