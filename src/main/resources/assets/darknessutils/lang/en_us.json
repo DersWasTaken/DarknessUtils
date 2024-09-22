@@ -12,106 +12,298 @@
       "color": "#CDC1FF"
     }
   ],
-  "text.config.darkness-settings.category.bossHighlights": [
+  "text.config.darkness-settings.option.showBossHighlights": [
     {
       "text": "<tertiary>Boss Highlights",
-      "color": "#E5D9F2"
+      "color": "#CDC1FF"
     }
   ],
-  "text.config.darkness-settings.option.bossHighlights.showBossHighlights": [
+  "text.config.darkness-settings.category.skeletonKingOptions": [
     {
-      "text": "<quaternary>Show Boss Highlights",
-      "color": "#F5EFFF"
+      "text": "<tertiary>Skeleton King",
+      "color": "#CDC1FF"
     }
   ],
-  "text.config.darkness-settings.category.bossHighlights.bossColors": [
+  "text.config.darkness-settings.option.skeletonKingOptions.color": [
     {
-      "text": "<tertiary>Boss Colors",
-      "color": "#E5D9F2"
+      "text": "<quaternary>Boss Color",
+      "color": "#CDC1FF"
     }
   ],
-  "text.config.darkness-settings.option.bossHighlights.bossColors.skeletonKingColor": [
+  "text.config.darkness-settings.option.skeletonKingOptions.isEnabled": [
     {
-      "text": "<quaternary>Skeleton King Color",
-      "color": "#F5EFFF"
+      "text": "<quaternary>Boss Highlight",
+      "color": "#CDC1FF"
     }
   ],
-  "text.config.darkness-settings.option.bossHighlights.bossColors.zombieKingColor": [
+  "text.config.darkness-settings.category.zombieKingOptions": [
     {
-      "text": "<quaternary>Zombie King Color",
-      "color": "#F5EFFF"
+      "text": "<tertiary>Zombie King",
+      "color": "#CDC1FF"
     }
   ],
-  "text.config.darkness-settings.option.bossHighlights.bossColors.netherKingColor": [
+  "text.config.darkness-settings.option.zombieKingOptions.color": [
     {
-      "text": "<quaternary>Nether King Color",
-      "color": "#F5EFFF"
+      "text": "<quaternary>Boss Color",
+      "color": "#CDC1FF"
     }
   ],
-  "text.config.darkness-settings.option.bossHighlights.bossColors.dragonSlayerColor": [
+  "text.config.darkness-settings.option.zombieKingOptions.isEnabled": [
     {
-      "text": "<quaternary>Dragon Slayer Color",
-      "color": "#F5EFFF"
+      "text": "<quaternary>Boss Highlight",
+      "color": "#CDC1FF"
     }
   ],
-  "text.config.darkness-settings.option.bossHighlights.bossColors.pandaKingColor": [
+  "text.config.darkness-settings.category.netherKingOptions": [
     {
-      "text": "<quaternary>Panda King Color",
-      "color": "#F5EFFF"
+      "text": "<tertiary>Nether King",
+      "color": "#CDC1FF"
     }
   ],
-  "text.config.darkness-settings.option.bossHighlights.bossColors.pumpkinKingColor": [
+  "text.config.darkness-settings.option.netherKingOptions.color": [
     {
-      "text": "<quaternary>Pumpkin King Color",
-      "color": "#F5EFFF"
+      "text": "<quaternary>Boss Color",
+      "color": "#CDC1FF"
     }
   ],
-  "text.config.darkness-settings.option.bossHighlights.bossColors.oceanPrinceColor": [
+  "text.config.darkness-settings.option.netherKingOptions.isEnabled": [
     {
-      "text": "<quaternary>Ocean Prince Color",
-      "color": "#F5EFFF"
+      "text": "<quaternary>Boss Highlight",
+      "color": "#CDC1FF"
     }
   ],
-  "text.config.darkness-settings.option.bossHighlights.bossColors.witchQueenColor": [
+  "text.config.darkness-settings.category.spiderKingOptions": [
     {
-      "text": "<quaternary>Witch Queen Color",
-      "color": "#F5EFFF"
+      "text": "<tertiary>Spider King",
+      "color": "#CDC1FF"
     }
   ],
-  "text.config.darkness-settings.option.bossHighlights.bossColors.dragonKingColor": [
+  "text.config.darkness-settings.option.spiderKingOptions.color": [
     {
-      "text": "<quaternary>Dragon King Color",
-      "color": "#F5EFFF"
+      "text": "<quaternary>Boss Color",
+      "color": "#CDC1FF"
     }
   ],
-  "text.config.darkness-settings.option.bossHighlights.bossColors.superWardenColor": [
+  "text.config.darkness-settings.option.spiderKingOptions.isEnabled": [
     {
-      "text": "<quaternary>Super Warden Color",
-      "color": "#F5EFFF"
+      "text": "<quaternary>Boss Highlight",
+      "color": "#CDC1FF"
     }
   ],
-  "text.config.darkness-settings.option.bossHighlights.bossColors.cursedAFColor": [
+  "text.config.darkness-settings.category.dragonSlayerOptions": [
     {
-      "text": "<quaternary>Cursed AustismFather Color",
-      "color": "#F5EFFF"
+      "text": "<tertiary>Dragon Slayer",
+      "color": "#CDC1FF"
     }
   ],
-  "text.config.darkness-settings.option.bossHighlights.bossColors.cursedZEDDY1977Color": [
+  "text.config.darkness-settings.option.dragonSlayerOptions.color": [
     {
-      "text": "<quaternary>Cursed ZEDDY1977 Color",
-      "color": "#F5EFFF"
+      "text": "<quaternary>Boss Color",
+      "color": "#CDC1FF"
     }
   ],
-  "text.config.darkness-settings.option.bossHighlights.bossColors.cursedCrankles_Color": [
+  "text.config.darkness-settings.option.dragonSlayerOptions.isEnabled": [
     {
-      "text": "<quaternary>Cursed Crankles_ Color",
-      "color": "#F5EFFF"
+      "text": "<quaternary>Boss Highlight",
+      "color": "#CDC1FF"
     }
   ],
-  "text.config.darkness-settings.option.bossHighlights.bossColors.cursedSolphireColor": [
+  "text.config.darkness-settings.category.pandaKingOptions": [
     {
-      "text": "<quaternary>Cursed Solphire Color",
-      "color": "#F5EFFF"
+      "text": "<tertiary>Panda King",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.pandaKingOptions.color": [
+    {
+      "text": "<quaternary>Boss Color",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.pandaKingOptions.isEnabled": [
+    {
+      "text": "<quaternary>Boss Highlight",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.category.pumpkinKingOptions": [
+    {
+      "text": "<tertiary>Pumpkin King",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.pumpkinKingOptions.color": [
+    {
+      "text": "<quaternary>Boss Color",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.pumpkinKingOptions.isEnabled": [
+    {
+      "text": "<quaternary>Boss Highlight",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.category.oceanPrinceOptions": [
+    {
+      "text": "<tertiary>Ocean Prince",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.oceanPrinceOptions.color": [
+    {
+      "text": "<quaternary>Boss Color",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.oceanPrinceOptions.isEnabled": [
+    {
+      "text": "<quaternary>Boss Highlight",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.category.witchQueenOptions": [
+    {
+      "text": "<tertiary>Witch Queen",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.witchQueenOptions.color": [
+    {
+      "text": "<quaternary>Boss Color",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.witchQueenOptions.isEnabled": [
+    {
+      "text": "<quaternary>Boss Highlight",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.category.dragonKingOptions": [
+    {
+      "text": "<tertiary>Dragon King",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.dragonKingOptions.color": [
+    {
+      "text": "<quaternary>Boss Color",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.dragonKingOptions.isEnabled": [
+    {
+      "text": "<quaternary>Boss Highlight",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.category.superWardenOptions": [
+    {
+      "text": "<tertiary>Super Warden",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.superWardenOptions.color": [
+    {
+      "text": "<quaternary>Boss Color",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.superWardenOptions.isEnabled": [
+    {
+      "text": "<quaternary>Boss Highlight",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.category.cursedAFOptions": [
+    {
+      "text": "<tertiary>Cursed AutismFather",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.cursedAFOptions.color": [
+    {
+      "text": "<quaternary>Mob Color",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.cursedAFOptions.isEnabled": [
+    {
+      "text": "<quaternary>Mob Highlight",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.category.cursedZEDDY1977Options": [
+    {
+      "text": "<tertiary>Cursed ZEDDY1977",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.cursedZEDDY1977Options.color": [
+    {
+      "text": "<quaternary>Mob Color",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.cursedZEDDY1977Options.isEnabled": [
+    {
+      "text": "<quaternary>Mob Highlight",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.category.cursedCranklesOptions": [
+    {
+      "text": "<tertiary>Cursed Crankles_",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.cursedCranklesOptions.color": [
+    {
+      "text": "<quaternary>Mob Color",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.cursedCranklesOptions.isEnabled": [
+    {
+      "text": "<quaternary>Mob Highlight",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.category.cursedSolphireOptions": [
+    {
+      "text": "<tertiary>Cursed Solphire",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.cursedSolphireOptions.color": [
+    {
+      "text": "<quaternary>Mob Color",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.cursedSolphireOptions.isEnabled": [
+    {
+      "text": "<quaternary>Mob Highlight",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.category.cursedFunMummyOptions": [
+    {
+      "text": "<tertiary>Cursed FunMummy",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.cursedFunMummyOptions.color": [
+    {
+      "text": "<quaternary>Mob Color",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.cursedFunMummyOptions.isEnabled": [
+    {
+      "text": "<quaternary>Mob Highlight",
+      "color": "#CDC1FF"
     }
   ],
   "text.config.darkness-settings.section.modSettings": [

@@ -104,7 +104,11 @@ publishing {
 }
 
 sourceSets {
-    main.java.srcDirs += [ 'src/main/generatedJava' ]
+    main {
+        java {
+//            srcDirs += [ 'src/main/generatedJava' ]
+        }
+    }
 }
 kotlin {
     jvmToolchain(21)

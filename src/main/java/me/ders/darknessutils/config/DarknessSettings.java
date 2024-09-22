@@ -5,39 +5,63 @@ import io.wispforest.owo.config.annotation.Modmenu;
 import io.wispforest.owo.config.annotation.Nest;
 import io.wispforest.owo.config.annotation.SectionHeader;
 import io.wispforest.owo.ui.core.Color;
-import net.minecraft.text.Text;
+import me.ders.darknessutils.config.impl.BossOptions;
+import org.checkerframework.checker.units.qual.N;
 
 @Modmenu(modId = "darknessutils")
 @Config(name = "darkness-settings", wrapperName = "DarknessModSettings")
 public class DarknessSettings {
 
     @SectionHeader("bossSettings")
+    public boolean showBossHighlights = true;
+
     @Nest
-    public BossHighlights bossHighlights = new BossHighlights();
+    public BossOptions.SkeletonKingOptions skeletonKingOptions = new BossOptions.SkeletonKingOptions();
 
-    public static class BossHighlights {
-        public boolean showBossHighlights = true;
+    @Nest
+    public BossOptions.ZombieKingOptions zombieKingOptions = new BossOptions.ZombieKingOptions();
 
-        @Nest
-        public BossColors bossColors = new BossColors();
+    @Nest
+    public BossOptions.NetherKingOptions netherKingOptions = new BossOptions.NetherKingOptions();
 
-        public static class BossColors {
-            public Color skeletonKingColor = Color.ofRgb(0xCCCCCC);
-            public Color zombieKingColor = Color.ofRgb(0x38761D);
-            public Color netherKingColor = Color.ofRgb(0xB45F06);
-            public Color dragonSlayerColor = Color.ofRgb(0xE95BFF);
-            public Color pandaKingColor = Color.ofRgb(0x6AA84F);
-            public Color pumpkinKingColor = Color.ofRgb(0xB44409);
-            public Color oceanPrinceColor = Color.ofRgb(0x3D85C6);
-            public Color witchQueenColor = Color.ofRgb(0x674EA7);
-            public Color dragonKingColor = Color.ofRgb(0x1B0F29);
-            public Color superWardenColor = Color.ofRgb(0x0B5394);
-            public Color cursedAFColor = Color.ofRgb(0xFF0014);
-            public Color cursedZEDDY1977Color = Color.ofRgb(0xFF4F0B);
-            public Color cursedCrankles_Color = Color.ofRgb(0xFF059F);
-            public Color cursedSolphireColor = Color.ofRgb(0xAA26FF);
-        }
-    }
+    @Nest
+    public BossOptions.SpiderKingOptions spiderKingOptions = new BossOptions.SpiderKingOptions();
+
+    @Nest
+    public BossOptions.DragonSlayerOptions dragonSlayerOptions = new BossOptions.DragonSlayerOptions();
+
+    @Nest
+    public BossOptions.PandaKingOptions pandaKingOptions = new BossOptions.PandaKingOptions();
+
+    @Nest
+    public BossOptions.PumpkinKingOptions pumpkinKingOptions = new BossOptions.PumpkinKingOptions();
+
+    @Nest
+    public BossOptions.OceanPrinceOptions oceanPrinceOptions = new BossOptions.OceanPrinceOptions();
+
+    @Nest
+    public BossOptions.WitchQueenOptions witchQueenOptions = new BossOptions.WitchQueenOptions();
+
+    @Nest
+    public BossOptions.DragonKingOptions dragonKingOptions = new BossOptions.DragonKingOptions();
+
+    @Nest
+    public BossOptions.SuperWardenOptions superWardenOptions = new BossOptions.SuperWardenOptions();
+
+    @Nest
+    public BossOptions.CursedAFOptions cursedAFOptions = new BossOptions.CursedAFOptions();
+
+    @Nest
+    public BossOptions.CursedZEDDY1977Options cursedZEDDY1977Options = new BossOptions.CursedZEDDY1977Options();
+
+    @Nest
+    public BossOptions.CursedCrankles_Options cursedCranklesOptions = new BossOptions.CursedCrankles_Options();
+
+    @Nest
+    public BossOptions.CursedSolphireOptions cursedSolphireOptions = new BossOptions.CursedSolphireOptions();
+
+    @Nest
+    public BossOptions.CursedFunMummyOptions cursedFunMummyOptions = new BossOptions.CursedFunMummyOptions();
 
     @SectionHeader("modSettings")
     @Nest
