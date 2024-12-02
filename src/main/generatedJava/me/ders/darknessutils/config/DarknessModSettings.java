@@ -2,7 +2,6 @@ package me.ders.darknessutils.config;
 
 import blue.endless.jankson.Jankson;
 import io.wispforest.owo.config.ConfigWrapper;
-import io.wispforest.owo.config.ConfigWrapper.BuilderConsumer;
 import io.wispforest.owo.config.Option;
 import io.wispforest.owo.util.Observable;
 
@@ -58,8 +57,8 @@ public class DarknessModSettings extends ConfigWrapper<me.ders.darknessutils.con
         super(me.ders.darknessutils.config.DarknessSettings.class);
     }
 
-    private DarknessModSettings(BuilderConsumer consumer) {
-        super(me.ders.darknessutils.config.DarknessSettings.class, consumer);
+    private DarknessModSettings(Consumer<Jankson.Builder> janksonBuilder) {
+        super(me.ders.darknessutils.config.DarknessSettings.class, janksonBuilder);
     }
 
     public static DarknessModSettings createAndLoad() {
@@ -68,8 +67,8 @@ public class DarknessModSettings extends ConfigWrapper<me.ders.darknessutils.con
         return wrapper;
     }
 
-    public static DarknessModSettings createAndLoad(BuilderConsumer consumer) {
-        var wrapper = new DarknessModSettings(consumer);
+    public static DarknessModSettings createAndLoad(Consumer<Jankson.Builder> janksonBuilder) {
+        var wrapper = new DarknessModSettings(janksonBuilder);
         wrapper.load();
         return wrapper;
     }

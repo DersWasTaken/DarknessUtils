@@ -41,7 +41,6 @@ public class InGameHudMixin {
                 RenderSystem.setShaderTexture(0, SLOT_LOCK_TEXTURE);
 
                 context.drawTexture(
-                        RenderLayer::getGuiTexturedOverlay,
                         SLOT_LOCK_TEXTURE,
                         x,
                         y,

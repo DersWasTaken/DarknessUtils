@@ -91,7 +91,7 @@ public abstract class HandledScreenMixin<T extends ScreenHandler> extends Screen
                 tooltip.add(Text.translatable("slotlock.press1").append(lockBinding.getBoundKeyLocalizedText().copy().append(Text.translatable("slotlock.press2"))));
 
                 drawContext.drawTooltip(
-                    this.textRenderer, tooltip, stack.getTooltipData() , x, y, stack.get(DataComponentTypes.TOOLTIP_STYLE)
+                    this.textRenderer, tooltip, stack.getTooltipData() , x, y
                 );
 
                 ci.cancel();
@@ -112,7 +112,6 @@ public abstract class HandledScreenMixin<T extends ScreenHandler> extends Screen
             }
             RenderSystem.setShaderTexture(0, SLOT_LOCK_TEXTURE);
             context.drawTexture(
-                    RenderLayer::getGuiTexturedOverlay,
                     SLOT_LOCK_TEXTURE,
                     slot.x,
                     slot.y,
