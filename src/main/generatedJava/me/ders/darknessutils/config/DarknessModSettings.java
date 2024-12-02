@@ -2,6 +2,7 @@ package me.ders.darknessutils.config;
 
 import blue.endless.jankson.Jankson;
 import io.wispforest.owo.config.ConfigWrapper;
+import io.wispforest.owo.config.ConfigWrapper.BuilderConsumer;
 import io.wispforest.owo.config.Option;
 import io.wispforest.owo.util.Observable;
 
@@ -13,6 +14,8 @@ public class DarknessModSettings extends ConfigWrapper<me.ders.darknessutils.con
 
     public final Keys keys = new Keys();
 
+    private final Option<java.lang.Boolean> doSlotLocking = this.optionForKey(this.keys.doSlotLocking);
+    private final Option<java.lang.Boolean> playLockSounds = this.optionForKey(this.keys.playLockSounds);
     private final Option<java.lang.Boolean> showBossHighlights = this.optionForKey(this.keys.showBossHighlights);
     private final Option<io.wispforest.owo.ui.core.Color> skeletonKingOptions_color = this.optionForKey(this.keys.skeletonKingOptions_color);
     private final Option<java.lang.Boolean> skeletonKingOptions_isEnabled = this.optionForKey(this.keys.skeletonKingOptions_isEnabled);
@@ -55,8 +58,8 @@ public class DarknessModSettings extends ConfigWrapper<me.ders.darknessutils.con
         super(me.ders.darknessutils.config.DarknessSettings.class);
     }
 
-    private DarknessModSettings(Consumer<Jankson.Builder> janksonBuilder) {
-        super(me.ders.darknessutils.config.DarknessSettings.class, janksonBuilder);
+    private DarknessModSettings(BuilderConsumer consumer) {
+        super(me.ders.darknessutils.config.DarknessSettings.class, consumer);
     }
 
     public static DarknessModSettings createAndLoad() {
@@ -65,10 +68,26 @@ public class DarknessModSettings extends ConfigWrapper<me.ders.darknessutils.con
         return wrapper;
     }
 
-    public static DarknessModSettings createAndLoad(Consumer<Jankson.Builder> janksonBuilder) {
-        var wrapper = new DarknessModSettings(janksonBuilder);
+    public static DarknessModSettings createAndLoad(BuilderConsumer consumer) {
+        var wrapper = new DarknessModSettings(consumer);
         wrapper.load();
         return wrapper;
+    }
+
+    public boolean doSlotLocking() {
+        return doSlotLocking.value();
+    }
+
+    public void doSlotLocking(boolean value) {
+        doSlotLocking.set(value);
+    }
+
+    public boolean playLockSounds() {
+        return playLockSounds.value();
+    }
+
+    public void playLockSounds(boolean value) {
+        playLockSounds.set(value);
     }
 
     public boolean showBossHighlights() {
@@ -525,6 +544,8 @@ public class DarknessModSettings extends ConfigWrapper<me.ders.darknessutils.con
         void quaternary(io.wispforest.owo.ui.core.Color value);
     }
     public static class Keys {
+        public final Option.Key doSlotLocking = new Option.Key("doSlotLocking");
+        public final Option.Key playLockSounds = new Option.Key("playLockSounds");
         public final Option.Key showBossHighlights = new Option.Key("showBossHighlights");
         public final Option.Key skeletonKingOptions_color = new Option.Key("skeletonKingOptions.color");
         public final Option.Key skeletonKingOptions_isEnabled = new Option.Key("skeletonKingOptions.isEnabled");

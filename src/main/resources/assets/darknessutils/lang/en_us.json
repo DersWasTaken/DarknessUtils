@@ -1,4 +1,26 @@
 {
+  "key.slotlock": "Lock Slot",
+  "slotlock.locked": "§cThis slot is locked!",
+  "slotlock.press1": "§n§cPress §c",
+  "slotlock.press2": "§c to unlock.",
+  "text.config.darkness-settings.section.slotLocking": [
+    {
+      "text": "<secondary>Slot Locking",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.doSlotLocking": [
+    {
+      "text": "<tertiary>Slot Locking",
+      "color": "#CDC1FF"
+    }
+  ],
+  "text.config.darkness-settings.option.playLockSounds": [
+    {
+      "text": "<tertiary>Play Lock Sounds",
+      "color": "#CDC1FF"
+    }
+  ],
   "text.config.darkness-settings.title": [
     {
       "text": "<primary>Darkness Settings",

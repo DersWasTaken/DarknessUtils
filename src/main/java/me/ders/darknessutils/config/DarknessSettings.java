@@ -6,11 +6,14 @@ import io.wispforest.owo.config.annotation.Nest;
 import io.wispforest.owo.config.annotation.SectionHeader;
 import io.wispforest.owo.ui.core.Color;
 import me.ders.darknessutils.config.impl.BossOptions;
-import org.checkerframework.checker.units.qual.N;
 
 @Modmenu(modId = "darknessutils")
 @Config(name = "darkness-settings", wrapperName = "DarknessModSettings")
 public class DarknessSettings {
+
+    @SectionHeader("slotLocking")
+    public boolean doSlotLocking = true;
+    public boolean playLockSounds = true;
 
     @SectionHeader("bossSettings")
     public boolean showBossHighlights = true;

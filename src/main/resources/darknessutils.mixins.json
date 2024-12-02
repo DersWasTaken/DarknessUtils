@@ -4,8 +4,19 @@
   "package": "me.ders.darknessutils.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "CreativeSlotAccessor",
     "GlowingMixin",
-    "TranslatableTextContentMixin"
+    "KeyBindingAccessor",
+    "ServerWorldAccessor",
+    "SlotAccessor",
+    "TranslatableTextContentMixin",
+    "ClientPlayerEntityMixin",
+    "CreativeInventoryScreenMixin",
+    "HandledScreenMixin",
+    "InGameHudMixin",
+    "MinecraftClientMixin",
+    "ScreenHandlerMixin",
+    "SlotMixin"
   ],
   "client": [
   ],

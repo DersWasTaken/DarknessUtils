@@ -21,6 +21,7 @@
   "mixins": [
     "darknessutils.mixins.json"
   ],
+  "accessWidener" : "darknessutils.accesswidener",
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
