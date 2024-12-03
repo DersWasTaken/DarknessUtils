@@ -30,7 +30,6 @@ import java.util.List;
 
 import static me.ders.darknessutils.DarknessUtils.lockBinding;
 import static me.ders.darknessutils.features.SlotLocking.isLocked;
-import static me.ders.darknessutils.features.SlotLocking.unlockSlot;
 
 @Mixin(HandledScreen.class)
 public abstract class HandledScreenMixin<T extends ScreenHandler> extends Screen implements HandledScreenMixed {
@@ -106,10 +105,6 @@ public abstract class HandledScreenMixin<T extends ScreenHandler> extends Screen
             finalSlot = ((CreativeSlotAccessor) finalSlot).getSlot();
         }
         if(this.client != null && slot.inventory == slotlock$playerInventory && isLocked(((SlotAccessor) finalSlot).getIndex()) && DarknessUtils.CONFIG.doSlotLocking()) {
-            if (!finalSlot.hasStack()) {
-                unlockSlot(((SlotAccessor) finalSlot).getIndex());
-                return;
-            }
             RenderSystem.setShaderTexture(0, SLOT_LOCK_TEXTURE);
             context.drawTexture(
                     RenderLayer::getGuiTexturedOverlay,

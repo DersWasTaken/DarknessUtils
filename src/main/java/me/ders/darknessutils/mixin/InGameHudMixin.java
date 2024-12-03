@@ -16,7 +16,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static me.ders.darknessutils.features.SlotLocking.isLocked;
-import static me.ders.darknessutils.features.SlotLocking.unlockSlot;
 
 @Mixin(InGameHud.class)
 public class InGameHudMixin {
@@ -35,24 +34,20 @@ public class InGameHudMixin {
     @Inject(at = @At("HEAD"), method = "renderHotbarItem")
     public void renderHotbarItem(DrawContext context, int x, int y, RenderTickCounter tickCounter, PlayerEntity player, ItemStack stack, int seed, CallbackInfo ci) {
         if (isLocked(slotIndex) && DarknessUtils.CONFIG.doSlotLocking()) {
-            if (player.getInventory().getStack(slotIndex).isEmpty()) {
-                unlockSlot(slotIndex);
-            } else {
-                RenderSystem.setShaderTexture(0, SLOT_LOCK_TEXTURE);
+            RenderSystem.setShaderTexture(0, SLOT_LOCK_TEXTURE);
 
-                context.drawTexture(
-                        RenderLayer::getGuiTexturedOverlay,
-                        SLOT_LOCK_TEXTURE,
-                        x,
-                        y,
-                        0,
-                        0,
-                        16,
-                        16,
-                        256,
-                        256
-                );
-            }
+            context.drawTexture(
+                    RenderLayer::getGuiTexturedOverlay,
+                    SLOT_LOCK_TEXTURE,
+                    x,
+                    y,
+                    0,
+                    0,
+                    16,
+                    16,
+                    256,
+                    256
+            );
         }
         slotIndex++;
 
