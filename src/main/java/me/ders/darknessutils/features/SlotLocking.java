@@ -1,17 +1,12 @@
 package me.ders.darknessutils.features;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import me.ders.darknessutils.DarknessUtils;
 import me.ders.darknessutils.mixin.CreativeSlotAccessor;
 import me.ders.darknessutils.mixin.KeyBindingAccessor;
-import me.ders.darknessutils.mixin.ServerWorldAccessor;
 import me.ders.darknessutils.mixin.SlotAccessor;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
 import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.client.network.ServerInfo;
 import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.entity.player.PlayerInventory;
@@ -19,15 +14,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
-import net.minecraft.server.integrated.IntegratedServer;
 import net.minecraft.sound.SoundEvents;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.LinkedHashSet;
 
 import static me.ders.darknessutils.DarknessUtils.*;
@@ -75,55 +65,45 @@ public class SlotLocking {
         isSaveDirty = true;
     }
 
-    public static void handleJoinWorld(MinecraftClient client) {
-        String key = "world";
-
-        if(client.isIntegratedServerRunning()) {
-            IntegratedServer server = client.getServer();
-            if(server != null) key = ((ServerWorldAccessor) server.getOverworld()).getWorldProperties().getLevelName();
-        } else {
-            ServerInfo info = client.getCurrentServerEntry();
-            if(info != null) key = info.address;
-        }
-
-        currentKey = key;
-        lockedSlots = new LinkedHashSet<>();
-        File slotLockFile = new File(MinecraftClient.getInstance().runDirectory, "slotlock.json");
-        Path slotLockPath = Paths.get(slotLockFile.getAbsolutePath());
-
-        if(Files.notExists(slotLockPath)) {
-            try{
-                Files.writeString(slotLockPath, "{ }");
-            } catch (Exception e){
-                System.getLogger("DarknessUtils").log(System.Logger.Level.INFO,"An error occurred while creating the slotlock file.", e);
-            }
-        }
-
-        String json;
-        try {
-            json = Files.readString(slotLockPath);
-        } catch (Exception e) {
-            System.getLogger("DarknessUtils").log(System.Logger.Level.INFO,"An error occurred while loading the slotlock file.", e);
-            json = "{ }";
-        }
-
-        try {
-            JsonObject jsonObject = new Gson().fromJson(json, JsonObject.class);
-            JsonArray lockedSlotsJson = jsonObject.getAsJsonArray(key);
-            if (lockedSlotsJson != null) {
-                lockedSlotsJson.forEach(element -> {
-                    int slot = -1;
-                    try {
-                        slot = element.getAsInt();
-                    } catch (Exception ignored) {}
-
-                    if (slot != -1)
-                       lockedSlots.add(slot);
-                });
-            }
-        } catch (Exception e) {
-            System.getLogger("DarknessUtils").log(System.Logger.Level.INFO,"An error occurred while reading the slotlock file.", e);
-        }
+    public static void handleJoinWorld() {
+//        String key = "lockedSlots";
+//        lockedSlots = new LinkedHashSet<>();
+//        File slotLockFile = new File(MinecraftClient.getInstance().runDirectory, "slotlock.json");
+//        Path slotLockPath = Paths.get(slotLockFile.getAbsolutePath());
+//
+//        if(Files.notExists(slotLockPath)) {
+//            try{
+//                Files.writeString(slotLockPath, "{ }");
+//            } catch (Exception e){
+//                System.getLogger("DarknessUtils").log(System.Logger.Level.INFO,"An error occurred while creating the slotlock file.", e);
+//            }
+//        }
+//
+//        String json;
+//        try {
+//            json = Files.readString(slotLockPath);
+//        } catch (Exception e) {
+//            System.getLogger("DarknessUtils").log(System.Logger.Level.INFO,"An error occurred while loading the slotlock file.", e);
+//            json = "{ }";
+//        }
+//
+//        try {
+//            JsonObject jsonObject = new Gson().fromJson(json, JsonObject.class);
+//            JsonArray lockedSlotsJson = jsonObject.getAsJsonArray(key);
+//            if (lockedSlotsJson != null) {
+//                lockedSlotsJson.forEach(element -> {
+//                    int slot = -1;
+//                    try {
+//                        slot = element.getAsInt();
+//                    } catch (Exception ignored) {}
+//
+//                    if (slot != -1)
+//                        lockedSlots.add(slot);
+//                });
+//            }
+//        } catch (Exception e) {
+//            System.getLogger("DarknessUtils").log(System.Logger.Level.INFO,"An error occurred while reading the slotlock file.", e);
+//        }
     }
 
     public static void handleMouseClick(ScreenHandler handler, PlayerInventory playerInventory, Slot slot, Slot deleteItemSlot, int invSlot, int clickData, SlotActionType actionType, CallbackInfo info) {

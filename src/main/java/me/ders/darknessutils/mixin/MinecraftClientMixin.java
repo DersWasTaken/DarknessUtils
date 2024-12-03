@@ -31,7 +31,7 @@ public class MinecraftClientMixin {
     @SuppressWarnings("ConstantConditions")
     @Inject(at = @At("HEAD"), method = "joinWorld")
     public void joinWorld(ClientWorld world, DownloadingTerrainScreen.WorldEntryReason worldEntryReason, CallbackInfo ci) {
-        me.ders.darknessutils.features.SlotLocking.handleJoinWorld(((MinecraftClient) ((Object) this)));
+        me.ders.darknessutils.features.SlotLocking.handleJoinWorld();
     }
 
     @Inject(at = @At("HEAD"), method = "handleInputEvents")
