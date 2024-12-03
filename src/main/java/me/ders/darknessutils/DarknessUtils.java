@@ -26,7 +26,6 @@ public class DarknessUtils implements ModInitializer {
     public static final DarknessModSettings CONFIG = DarknessModSettings.createAndLoad();
     public static KeyBinding lockBinding;
 
-    public static String currentKey = "world";
     public static boolean isSaveDirty = false;
     private long lastDirtyCheck = System.currentTimeMillis();
 
@@ -67,7 +66,7 @@ public class DarknessUtils implements ModInitializer {
                     JsonObject jsonObject = new Gson().fromJson(json, JsonObject.class);
                     JsonArray jsonArray = new JsonArray();
                     lockedSlots.forEach(jsonArray::add);
-                    jsonObject.add(currentKey, jsonArray);
+                    jsonObject.add("lockedSlots", jsonArray);
 
                     try {
                         Files.writeString(slotLockPath, jsonObject.toString());
