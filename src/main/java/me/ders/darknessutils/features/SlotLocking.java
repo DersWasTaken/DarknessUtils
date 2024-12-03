@@ -6,12 +6,10 @@ import com.google.gson.JsonObject;
 import me.ders.darknessutils.DarknessUtils;
 import me.ders.darknessutils.mixin.CreativeSlotAccessor;
 import me.ders.darknessutils.mixin.KeyBindingAccessor;
-import me.ders.darknessutils.mixin.ServerWorldAccessor;
 import me.ders.darknessutils.mixin.SlotAccessor;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
 import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.client.network.ServerInfo;
 import net.minecraft.client.option.GameOptions;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.entity.player.PlayerInventory;
@@ -19,7 +17,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
-import net.minecraft.server.integrated.IntegratedServer;
 import net.minecraft.sound.SoundEvents;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -75,18 +72,8 @@ public class SlotLocking {
         isSaveDirty = true;
     }
 
-    public static void handleJoinWorld(MinecraftClient client) {
-        String key = "world";
-
-        if(client.isIntegratedServerRunning()) {
-            IntegratedServer server = client.getServer();
-            if(server != null) key = ((ServerWorldAccessor) server.getOverworld()).getWorldProperties().getLevelName();
-        } else {
-            ServerInfo info = client.getCurrentServerEntry();
-            if(info != null) key = info.address;
-        }
-
-        currentKey = key;
+    public static void handleJoinWorld() {
+        String key = "lockedSlots";
         lockedSlots = new LinkedHashSet<>();
         File slotLockFile = new File(MinecraftClient.getInstance().runDirectory, "slotlock.json");
         Path slotLockPath = Paths.get(slotLockFile.getAbsolutePath());
