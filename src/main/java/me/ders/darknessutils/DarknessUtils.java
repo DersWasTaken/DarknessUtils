@@ -5,6 +5,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import io.wispforest.owo.config.ui.ConfigScreenProviders;
 import me.ders.darknessutils.config.DarknessModSettings;
+import me.ders.darknessutils.features.AutoFix;
+import me.ders.darknessutils.features.AutoHeal;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -15,6 +17,7 @@ import net.minecraft.client.util.InputUtil;
 import org.incendo.cloud.Command;
 import org.incendo.cloud.execution.ExecutionCoordinator;
 import org.incendo.cloud.fabric.FabricClientCommandManager;
+
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -24,7 +27,13 @@ import java.util.LinkedHashSet;
 public class DarknessUtils implements ModInitializer {
 
     public static final DarknessModSettings CONFIG = DarknessModSettings.createAndLoad();
+
+    public static AutoFix autoFix;
+    public static AutoHeal autoHeal;
+
     public static KeyBinding lockBinding;
+    public static KeyBinding fixBinding;
+    public static KeyBinding healBinding;
 
     public static boolean isSaveDirty = false;
     private long lastDirtyCheck = System.currentTimeMillis();
@@ -38,6 +47,9 @@ public class DarknessUtils implements ModInitializer {
 
         final Command.Builder<FabricClientCommandSource> base = commandManager.commandBuilder("darkness");
 
+        autoFix = AutoFix.getInstance();
+        autoHeal = AutoHeal.getInstance();
+
         commandManager.command(base.literal("config")
                 .handler(ctx -> {
                     MinecraftClient.getInstance().send(() -> MinecraftClient.getInstance().setScreen(ConfigScreenProviders.get("darknessutils").apply(null)));
@@ -48,6 +60,20 @@ public class DarknessUtils implements ModInitializer {
                 InputUtil.Type.KEYSYM,
                 InputUtil.GLFW_KEY_LEFT_ALT,
                 "key.categories.inventory"
+        ));
+
+        fixBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                "key.fix",
+                InputUtil.Type.KEYSYM,
+                InputUtil.GLFW_KEY_G,
+                "key.categories.gameplay"
+        ));
+
+        healBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                "key.heal",
+                InputUtil.Type.KEYSYM,
+                InputUtil.GLFW_KEY_H,
+                "key.categories.gameplay"
         ));
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {

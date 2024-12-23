@@ -16,7 +16,8 @@
     "InGameHudMixin",
     "MinecraftClientMixin",
     "ScreenHandlerMixin",
-    "SlotMixin"
+    "SlotMixin",
+    "PlayerInventoryAccessor"
   ],
   "client": [
   ],
