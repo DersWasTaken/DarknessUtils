@@ -1,5 +1,7 @@
 {
   "key.slotlock": "Lock Slot",
+  "key.fix": "Fix Inventory",
+  "key.heal": "Heal Player",
   "slotlock.locked": "§cThis slot is locked!",
   "slotlock.press1": "§n§cPress §c",
   "slotlock.press2": "§c to unlock.",
